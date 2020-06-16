@@ -131,8 +131,7 @@ public void ChangeLicExpDate(String exprmonth, String exprday, String expryear) 
 
 public void searchDependents( List< WebElement > persDetailDD , String Dependents)  {
 	
-	//String expectedlink="Dependents";
-	//List<WebElement > persDetailDD=driver.findElements(By.xpath("//ul[@id='sidenav']/li"));
+	
 	
 	for ( WebElement DD:persDetailDD) {
 		

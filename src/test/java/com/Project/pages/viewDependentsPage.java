@@ -35,13 +35,12 @@ public WebElement btnSave;
 public viewDependentsPage(){
 	PageFactory.initElements(driver, this);
 }
-
 public void DependentBirthDate(String month, String birtDay,String year) {
 	calendarimage.click();
 	selectDdValue(selectMonth,month);
 	wait(2);
 	selectDdValue(selectYear,year);
-List<WebElement>  datenumbers=driver.findElements(By.xpath("//table[@class='ui-datepicker-calendar']//tbody//tr//td"));// calendar
+//List<WebElement>  datenumbers=driver.findElements(By.xpath("//table[@class='ui-datepicker-calendar']//tbody//tr//td"));// calendar
 	for(WebElement date: datenumbers) {
 		try {
 			Thread.sleep(200);

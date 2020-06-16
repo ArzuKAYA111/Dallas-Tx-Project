@@ -13,10 +13,10 @@ import io.cucumber.junit.CucumberOptions;
 		
 		features="src/test/resources/features/",
 		glue="com/Project/steps",
-		dryRun=true,
+		dryRun=false,
 		monochrome=true,
 		strict=true,
-		tags ="@progress",
+		tags ="@AddDependents",
 		plugin= {
 			"pretty",
 			"html:target/cucumber-default-report",

@@ -10,10 +10,8 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 public class AddDependents extends CommonMethods {
-
 	@Given("user logged in with valid admin username {string} and password {string}")
 	public void user_logged_in_with_valid_admin_username_and_password(String string, String string2) {
-
 		login.login(string, string2);
 		wait(2);
 	}
@@ -24,7 +22,6 @@ public class AddDependents extends CommonMethods {
 	}
 	@Then("user searched employee by employee ID {string}")
 	public void user_searched_employee_by_employee_ID(String ID) {
-
 		empinfo.EmpID.sendKeys(ID, Keys.ENTER);
 		wait(2);
 		jsClick(empinfo.serchBtn);
@@ -38,14 +35,15 @@ public class AddDependents extends CommonMethods {
 	@Then("user clicked on dependents link and navigate to Assigned Dependents page")
 	public void user_clicked_on_dependents_link_and_navigate_to_Assigned_Dependents_page() {
 		pdetails.searchDependents(pdetails.dependent,"Dependents");
+		jsClick(depdents.btnAddDependant);
+	
 	}
 	@Then("user added multiple dependents name {string}")
 	public void user_added_multiple_dependents_name(String string) {
 		wait(3);
 		jsClick(depdents.btnAddDependant);
 		sendText(depdents.depdntName , string);
-		wait(2);
-	
+		wait(8);
 	}
 	@Then("user selected dependents relationship {string} and specify relationship {string}")
 	public void user_selected_dependents_relationship_and_specify_relationship(String string1 ,String string2) {
@@ -55,27 +53,27 @@ public class AddDependents extends CommonMethods {
 	}
 	@Then("user selected dependents birthdates {string},{string},{string} and click save")
 	public void user_selected_dependents_birthdates_and_click_save(String month, String day, String year) {
-	
 		depdents.DependentBirthDate(month,day,year);
-		
 		jsClick(depdents.btnSave);
 	}
-	
 	@Then("user added multiple dependents information")
 	public void user_added_multiple_dependents_information(DataTable str) {
 		List<Map<String, String>> depinfo=str.asMaps();
-		
-		for(Map<String ,String > addinfo:depinfo) {
-			
+		  for(Map<String ,String > addinfo:depinfo) {
 			String depName=addinfo.get("DependentName");
 			String relationship=addinfo.get("RelationShip");
 			String rel=addinfo.get("relations");
 			String birtday=addinfo.get("birthDate");
-			
+		
 			sendText(depdents.depdntName, depName);
-			sendText(depdents.Relationship, relationship);
+			selectDdValue(depdents.Relationship,relationship);
 			sendText(depdents.SpecifyRelationship, rel);
 			sendText(depdents.DateOfBirth, birtday);
+			jsClick(depdents.btnSave);
+			wait(3);
+			jsClick(depdents.btnAddDependant);
+			
+			
 
 			}
 	}

@@ -1,5 +1,5 @@
 #Author:fizikuludag@gmail.com
-  @regression
+@AddDependents
 Feature: As an admin I should be able to add employee's multiple dependents
 
   Background: Addind multiple dependents
@@ -9,7 +9,6 @@ Feature: As an admin I should be able to add employee's multiple dependents
     Then user seleceted to employee and navigated to personal details page
     And user clicked on dependents link and navigate to Assigned Dependents page
 
-
   Scenario Outline: Addind multiple dependents
     Then user added multiple dependents name "<DependentName>"
     And user selected dependents relationship "<RelationShip>" and specify relationship "<relations>"
@@ -17,22 +16,13 @@ Feature: As an admin I should be able to add employee's multiple dependents
 
     Examples: 
       | DependentName | RelationShip | relations | month | day | year |
-      | Zeynep Gulec  | Other        | doughter  | Jun   |  06 | 2015 |
+      | Zeynep Gulec  | Other        | doughter  | Jul   |  06 | 2015 |
       | Eylul Erdem   | Other        | cousin    | May   |  12 | 1989 |
       | Hilal Dogru   | Other        | friend    | Apr   |  27 | 1984 |
 
- @progress
   Scenario: Addind multiple dependents
     Then user added multiple dependents information
-    
-    | DependentName | RelationShip | relations | birthDate   |
-      | Zeynep Gulec  | Other        | doughter  | 2015-Jun-06 |
-      | Eylul Erdem   | Other        | cousin    | 1989-May-12 |
-      | Hilal Dogru   | Other        | friend    | 1984-Apr-27 | 
-    
-    
-    
-    
-
-
-     
+      | DependentName | RelationShip | relations | birthDate   |
+      | Zeynep Gulec1 | Other        | doughter1 | 2015-Jul-06 |
+      | Eylul Erdem1  | Other        | cousin1   | 1989-May-12 |
+      | Hilal Dogru1  | Other        | friend1   | 1984-Apr-27 |
